@@ -10,6 +10,7 @@ use Validator;
 class studentdetailcontoller extends Controller
 {
     public function create(Request $req) {
+        // dd($req->all());
     	$data = new university();
     	$data->name = $req->name;
     	$data->mobile = $req->mobile;
@@ -38,8 +39,8 @@ class studentdetailcontoller extends Controller
     }
     public function edit($id) {
     	$data = university::find($id);
-    	// dd($data);	
     	$hobbies = explode(',', $data->hobbies);
+    	// dd($hobbies);	
     	return view('update',compact('data' ,'hobbies'));	
     }
     public function update(Request $req , $id) {
